@@ -1,13 +1,17 @@
 package org.spring_core.spring_core;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
 public class SpringCoreApplication {
-
     public static void main(String[] args) {
-        SpringApplication.run(SpringCoreApplication.class, args);
-    }
+        //ZoombieGame game = new ZoombieGame();
+        //MarioGame game = new MarioGame();
+        //GameRunner gameRunner = new GameRunner(game);
 
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        GameRunner gameRunner = context.getBean(GameRunner.class);
+        gameRunner.moveUp();
+        gameRunner.moveDown();
+    }
 }

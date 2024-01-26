@@ -5,6 +5,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanConfig {
+
+    int counter ;
+    @Bean
+    public String myString(){
+        System.out.println(++counter);
+        return "Dara";
+    }
+
     @Bean
     public GreetingService getGreetingService(){
         return new GreetingThailand();
